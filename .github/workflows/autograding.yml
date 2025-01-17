@@ -42,6 +42,9 @@ jobs:
                 else
                   # Print failed test case in red
                   echo -e "\033[0;31mTest Case ${i} Failed\033[0m"
+                  # Show differences between expected and actual output
+                  echo -e "\033[0;31mDifferences:\033[0m"
+                  diff testcases/output${i}.dat output${i}.txt || true
                 fi
               else
                 echo "Test Case ${i} skipped (no output file found)."
